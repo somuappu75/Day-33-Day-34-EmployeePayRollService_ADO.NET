@@ -51,5 +51,25 @@ namespace EmployeePayRollService_ADO.NET
             //Close Connection
             sqlConnection.Close();
         }
+        public void UpdateSalary()
+        {
+            //Open Connection
+            sqlConnection.Open();
+            string query = "update employee_payroll set basicPay=3670000 where name= 'suresh'";
+            //Pass query to TSql
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            int result = sqlCommand.ExecuteNonQuery();
+            if (result != 0)
+            {
+                Console.WriteLine("Updated!");
+            }
+            else
+            {
+                Console.WriteLine("Not Updated!");
+            }
+            //Close Connection
+            sqlConnection.Close();
+            GetDataFromSql();
+        }
     }
 }
